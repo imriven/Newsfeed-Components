@@ -85,6 +85,22 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  }, 
+  {
+    title: 'blah',
+    date: 'Jblekc',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -189,33 +205,73 @@ newComponents.forEach(component => {
 
 function componentCreator(obj){
   const article = document.createElement('div');
+  article.classList.add('article');
+
   const title = document.createElement('h2');
-  const date = document.createElement('p');
-  const fpara1 = document.createElement('p');
-  const fpara2 = document.createElement('p');
-  const fpara3 = document.createElement('p');
-
-  title.textContent = data.title
-  date.textContent = data.date
-  fpara1.textContent = data.firstParagraph
-  fpara2.textContent = data.secondParagraph
-  fpara3.textContent = data.thirdParagraph
-
+  title.textContent = obj.title
   article.append(title);
+  
+  const date = document.createElement('p');
+  date.classList.add('date');
+  date.textContent = obj.date
   article.append(date);
-  article.append(fpara1);
-  article.append(fpara2);
-  article.append(fpara3);
+  
+  const para1 = document.createElement('p');
+  para1.textContent = obj.firstParagraph
+  article.append(para1);
 
+  const para2 = document.createElement('p');
+  para2.textContent = obj.secondParagraph
+  article.append(para2);
 
+  const para3 = document.createElement('p');
+  para3.textContent = obj.thirdParagraph
+  article.append(para3);
+
+/*
+  const buttonOpen = document.createElement("button");
+  buttonOpen.textContent = '\u25bc';
+  buttonOpen.addEventListener("click", e => {
+  e.target.parentElement.classList.toggle("article-open")
+  e.target.classList.toggle("hide-btn")
+  })
+  article.append(buttonOpen);
+
+  const buttonClose = document.createElement("button");
+  buttonClose.textContent = '\u25b2';
+  buttonClose.classList.add("hide-btn")
+  article.append(buttonClose)
+  */
+
+  const span = document.createElement("span")
+  span.classList.add("expandButton");
+  span.addEventListener("click", e => e.target.parentElement.classList.toggle("article-open"))
+
+  span.textContent = "Expand"
+  article.appendChild(span)
+  
 
 return article;
 }
 
-//
+
+let articlesList = data.map(article => componentCreator(article))
+
+let articlesDiv = document.querySelector("div.articles")
+articlesList.forEach(article => articlesDiv.appendChild(article))
+
 // create new function that will create a panel component exactly as you see it in the HTML
 
+// define new elements
+
 // setup the structure of our elements
+
+// add classes to elements
+
+// set text content
+
+
 /*
 data.forEach( data => console.log("creating panels", data.content))  access the data
 */
+
