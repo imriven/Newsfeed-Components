@@ -112,3 +112,110 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+/*  ------ Examples -----------
+let button = document.createElement('button');
+
+button.textContent = 'Button 1';
+
+button.classList.add('button');
+
+button.addEventListener('click', (e) => {
+    console.log('clicked!');
+});
+
+parent.appendChild(button);
+--------------
+function buttonCreator(buttonText){
+    const button = document.createElement('button');
+
+    button.textContent = buttonText;
+
+    button.classList.add('button');
+
+    button.addEventListener('click', (e) => {
+        console.log('clicked!');
+    });
+
+    return button;
+}
+
+let firstButton = buttonCreator('Button 1');
+
+let secondButton = buttonCreator('Button 2');
+
+parent.appendChild(firstButton);
+parent.appendChild(secondButton);
+------------------
+const data = [
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+-----------------
+function buttonCreator(buttonText){
+    const button = document.createElement('button');
+
+    button.textContent = buttonText;
+
+    button.classList.add('button');
+
+    button.addEventListener('click', (e) => {
+        console.log('clicked!');
+    });
+
+    return button;
+})
+---------------
+data.forEach((arrayItem) => {
+  let newButton = buttonCreator(arrayItem);
+
+  parent.appendChild(newButton);
+});
+-----------
+let newComponents = data.map((arrayItem) => {
+  let newButton = buttonCreator(arrayItem);
+
+  // Remember, we always need to return something when we use .map
+  return newButton;
+});
+---------------
+newComponents.forEach(component => {
+  parent.appendChild(component);
+});
+*/
+
+
+function componentCreator(obj){
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const fpara1 = document.createElement('p');
+  const fpara2 = document.createElement('p');
+  const fpara3 = document.createElement('p');
+
+  title.textContent = data.title
+  date.textContent = data.date
+  fpara1.textContent = data.firstParagraph
+  fpara2.textContent = data.secondParagraph
+  fpara3.textContent = data.thirdParagraph
+
+  article.append(title);
+  article.append(date);
+  article.append(fpara1);
+  article.append(fpara2);
+  article.append(fpara3);
+
+
+
+return article;
+}
+
+//
+// create new function that will create a panel component exactly as you see it in the HTML
+
+// setup the structure of our elements
+/*
+data.forEach( data => console.log("creating panels", data.content))  access the data
+*/
