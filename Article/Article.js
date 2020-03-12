@@ -206,6 +206,7 @@ newComponents.forEach(component => {
 function componentCreator(obj){
   const article = document.createElement('div');
   article.classList.add('article');
+  article.classList.add("transition")
 
   const title = document.createElement('h2');
   title.textContent = obj.title
@@ -228,20 +229,7 @@ function componentCreator(obj){
   para3.textContent = obj.thirdParagraph
   article.append(para3);
 
-/*
-  const buttonOpen = document.createElement("button");
-  buttonOpen.textContent = '\u25bc';
-  buttonOpen.addEventListener("click", e => {
-  e.target.parentElement.classList.toggle("article-open")
-  e.target.classList.toggle("hide-btn")
-  })
-  article.append(buttonOpen);
 
-  const buttonClose = document.createElement("button");
-  buttonClose.textContent = '\u25b2';
-  buttonClose.classList.add("hide-btn")
-  article.append(buttonClose)
-  */
 
   const span = document.createElement("span")
   span.classList.add("expandButton");

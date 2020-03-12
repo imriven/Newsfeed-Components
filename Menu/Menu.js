@@ -37,6 +37,7 @@ let menuItems = [
 function menuFunction (menuItems) {
   const menuDiv = document.createElement("div")
   menuDiv.classList.add("menu")
+  menuDiv.classList.add("transition-o")
   const ul = document.createElement("ul")
   menuItems.forEach(item => {
     const link = document.createElement("li")
@@ -52,3 +53,5 @@ function menuFunction (menuItems) {
 }
 
 document.body.append(menuFunction(menuItems))
+
+
