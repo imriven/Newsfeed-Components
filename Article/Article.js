@@ -85,6 +85,22 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  }, 
+  {
+    title: 'Meagetti and Sneatballs',
+    date: 'August 23, 1983',
+    firstParagraph: `Hodor hodor HODOR! Hodor hodor - hodor, hodor. Hodor hodor... Hodor hodor hodor; hodor hodor. Hodor hodor hodor, hodor, hodor
+          hodor. Hodor, hodor. Hodor. Hodor, hodor - hodor... Hodor hodor hodor; hodor HODOR hodor, hodor hodor?! Hodor hodor, hodor.
+          Hodor hodor hodor hodor hodor! Hodor hodor - HODOR hodor, hodor hodor hodor hodor hodor; hodor hodor? `,
+
+    secondParagraph: `Hodor, hodor. Hodor. Hodor, hodor, hodor. Hodor hodor, hodor. Hodor hodor, hodor, hodor hodor. Hodor! Hodor hodor, hodor;
+          hodor hodor hodor? Hodor, hodor. Hodor. Hodor, hodor - HODOR hodor, hodor hodor hodor! Hodor, hodor. Hodor. Hodor, HODOR
+          hodor, hodor hodor, hodor, hodor hodor. Hodor hodor - hodor - hodor... Hodor hodor hodor hodor hodor hodor hodor?! Hodor
+          hodor - hodor hodor hodor. Hodor. Hodor hodor... Hodor hodor hodor hodor hodor? `,
+
+    thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
+          Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
+          Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
   }
 ];
 
@@ -112,3 +128,138 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new article.
 
 */
+
+/*  ------ Examples -----------
+let button = document.createElement('button');
+
+button.textContent = 'Button 1';
+
+button.classList.add('button');
+
+button.addEventListener('click', (e) => {
+    console.log('clicked!');
+});
+
+parent.appendChild(button);
+--------------
+function buttonCreator(buttonText){
+    const button = document.createElement('button');
+
+    button.textContent = buttonText;
+
+    button.classList.add('button');
+
+    button.addEventListener('click', (e) => {
+        console.log('clicked!');
+    });
+
+    return button;
+}
+
+let firstButton = buttonCreator('Button 1');
+
+let secondButton = buttonCreator('Button 2');
+
+parent.appendChild(firstButton);
+parent.appendChild(secondButton);
+------------------
+const data = [
+    "Button One",
+    "Button Two",
+    "Button Three",
+    "Button Four"
+]
+-----------------
+function buttonCreator(buttonText){
+    const button = document.createElement('button');
+
+    button.textContent = buttonText;
+
+    button.classList.add('button');
+
+    button.addEventListener('click', (e) => {
+        console.log('clicked!');
+    });
+
+    return button;
+})
+---------------
+data.forEach((arrayItem) => {
+  let newButton = buttonCreator(arrayItem);
+
+  parent.appendChild(newButton);
+});
+-----------
+let newComponents = data.map((arrayItem) => {
+  let newButton = buttonCreator(arrayItem);
+
+  // Remember, we always need to return something when we use .map
+  return newButton;
+});
+---------------
+newComponents.forEach(component => {
+  parent.appendChild(component);
+});
+*/
+
+
+function componentCreator(obj){
+  const article = document.createElement('div');
+  article.classList.add('article');
+  article.classList.add("transition")
+
+  const title = document.createElement('h2');
+  title.textContent = obj.title
+  article.append(title);
+  
+  const date = document.createElement('p');
+  date.classList.add('date');
+  date.textContent = obj.date
+  article.append(date);
+  
+  const para1 = document.createElement('p');
+  para1.textContent = obj.firstParagraph
+  article.append(para1);
+
+  const para2 = document.createElement('p');
+  para2.textContent = obj.secondParagraph
+  article.append(para2);
+
+  const para3 = document.createElement('p');
+  para3.textContent = obj.thirdParagraph
+  article.append(para3);
+
+
+
+  const span = document.createElement("span")
+  span.classList.add("expandButton");
+  span.addEventListener("click", e => e.target.parentElement.classList.toggle("article-open"))
+
+  span.textContent = "Expand"
+  article.appendChild(span)
+  
+
+return article;
+}
+
+
+let articlesList = data.map(article => componentCreator(article))
+
+let articlesDiv = document.querySelector("div.articles")
+articlesList.forEach(article => articlesDiv.appendChild(article))
+
+// create new function that will create a panel component exactly as you see it in the HTML
+
+// define new elements
+
+// setup the structure of our elements
+
+// add classes to elements
+
+// set text content
+
+
+/*
+data.forEach( data => console.log("creating panels", data.content))  access the data
+*/
+

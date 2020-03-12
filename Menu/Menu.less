@@ -5,7 +5,8 @@
 }
 
 .menu {
-  display: none;
+  display: block;
+  opacity: 0;
   position: fixed;
   top: 75px;
   left: 0;
@@ -15,6 +16,7 @@
   border: 1px solid #004D40;
   border-left: none;
   border-bottom: none;
+  box-shadow: 20px 20px 10px grey;
   z-index: 2; /* This set the layer level of the element, it has precendence over initial level of 1*/
 }
 
@@ -26,5 +28,10 @@
 }
 
 .menu--open {
-  display: block;
+  opacity: 1;
 }
+
+.transition-o {
+  -webkit-transition: opacity 1.5s linear; /* Safari */
+  transition: opacity 1.5s linear;
+  }
